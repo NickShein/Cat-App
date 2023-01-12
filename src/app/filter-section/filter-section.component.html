@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="container-header">
+    <h1 class="text-center cnt-header">Search options</h1>
+  </div>
+  <div class="container-main">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <div class="d-grid">
+        <h2 class="text-center select-label">Breed of the cat</h2>
+        <hr />
+        <br />
+        <mat-form-field appearance="fill">
+          <mat-label>Breed name</mat-label>
+          <mat-select (change)="changeCat($event)" formControlName="catName">
+            <mat-option *ngFor="let cat of cats" [value]="cat.value">
+              {{ cat.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <h2 class="text-center select-label">Result values</h2>
+        <hr />
+        <br />
+        <mat-form-field appearance="fill">
+          <mat-label>Values to show <span class="small-text">(default 10)</span></mat-label>
+          <mat-select (change)="changeCountValues($event)" formControlName="countValues">
+            <mat-option *ngFor="let val of values" [value]="val.viewValue">
+              {{ val.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button type="submit" mat-flat-button color="basic">Confirm</button>
+      </div>
+    </form>
+  </div>
+</div>

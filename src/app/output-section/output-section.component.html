@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="container-header">
+    <h1 class="text-center cnt-header">Output</h1>
+  </div>
+  <div class="container-main">
+    <image-slider [slides]="slides" *ngIf="!isHidden;else elseBlock"></image-slider>
+    <ng-template #elseBlock> <div class="text-center alternateText">Here we can see our images.</div> </ng-template>
+  </div>
+</div>
